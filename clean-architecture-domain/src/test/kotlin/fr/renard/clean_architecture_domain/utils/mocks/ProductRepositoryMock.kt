@@ -1,9 +1,9 @@
 package fr.renard.clean_architecture_domain.utils.mocks
 
-import fr.renard.clean_architecture_domain.product.domain.Product
-import fr.renard.clean_architecture_domain.product.domain.repository.ProductRepository
+import fr.renard.clean_architecture_domain.product.model.Product
+import fr.renard.clean_architecture_domain.product.port.secondary.repository.ProductRepository
 
-class ProductRepositoryMock: ProductRepository {
+class ProductRepositoryMock : ProductRepository {
 
     private var products: HashMap<Long, Product> = HashMap()
 

@@ -1,9 +1,9 @@
 package fr.renard.clean_architecture_domain.acceptance.product
 
-import fr.renard.clean_architecture_domain.product.domain.Product
-import fr.renard.clean_architecture_domain.product.domain.ProductCreation
-import fr.renard.clean_architecture_domain.product.usecases.ManageProductUseCase
-import fr.renard.clean_architecture_domain.product.usecases.port.ManageProduct
+import fr.renard.clean_architecture_domain.product.model.Product
+import fr.renard.clean_architecture_domain.product.model.ProductCreation
+import fr.renard.clean_architecture_domain.product.port.primary.usecase.ProductService
+import fr.renard.clean_architecture_domain.product.usecases.ProductServiceImpl
 import fr.renard.clean_architecture_domain.utils.mocks.ProductRepositoryMock
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
@@ -12,13 +12,13 @@ import org.assertj.core.api.Java6Assertions.assertThat
 
 class ProductStepDefs: En {
 
-    private val manageProduct: ManageProduct = ManageProductUseCase(ProductRepositoryMock())
+    private val productService: ProductService = ProductServiceImpl(ProductRepositoryMock())
 
     private var product: Product? = null
 
     @When("we create a product with name {string}")
     fun createProduct(name: String) {
-        this.product = manageProduct.createProduct(ProductCreation(name))
+        this.product = productService.createProduct(ProductCreation(name))
     }
 
     @Then("the product is created with name {string}")

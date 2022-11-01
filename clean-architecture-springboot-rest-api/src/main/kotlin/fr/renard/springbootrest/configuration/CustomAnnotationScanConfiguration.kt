@@ -1,6 +1,6 @@
 package fr.renard.springbootrest.configuration
 
-import fr.renard.clean_architecture_domain.product.usecases.UseCase
+import fr.renard.clean_architecture_domain.socle.dependency_injection.annotation.UseCase
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.FilterType
