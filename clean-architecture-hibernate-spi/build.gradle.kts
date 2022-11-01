@@ -4,10 +4,19 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
+    kotlin("kapt")
 }
+
+val mapstructVersion = "1.5.3.Final"
 
 repositories {
     mavenCentral()
+}
+
+kapt {
+    dependencies {
+        kapt("org.mapstruct:mapstruct-processor:$mapstructVersion")
+    }
 }
 
 dependencies {
@@ -16,7 +25,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation(project(":clean-architecture-domain"))
-    implementation("org.mapstruct:mapstruct:1.5.3.Final")
-    annotationProcessor("org.mapstruct:mapstruct-processor:1.5.3.Final")
+    implementation("org.mapstruct:mapstruct:$mapstructVersion")
+    annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
+    testAnnotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
