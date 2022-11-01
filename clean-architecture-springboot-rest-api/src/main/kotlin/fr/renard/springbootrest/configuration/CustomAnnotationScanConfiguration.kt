@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 @Configuration
 @ComponentScan(
     basePackages = ["fr.renard.clean_architecture_domain", "fr.renard.application_hibernate_data_provider"],
-    includeFilters = [ComponentScan.Filter(type = FilterType.ANNOTATION, classes = [UseCase::class])]
+    includeFilters = [ComponentScan.Filter(type = FilterType.ANNOTATION, classes = [UseCase::class])],
 )
-@EnableJpaRepositories
+@EnableJpaRepositories(basePackages = ["fr.renard.application_hibernate_data_provider"])
 class CustomAnnotationScanConfiguration {
 }

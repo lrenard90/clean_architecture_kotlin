@@ -5,7 +5,7 @@ import fr.renard.clean_architecture_domain.product.model.Product
 import org.mapstruct.Mapper
 import org.springframework.stereotype.Component
 
-@Mapper
+@Mapper(componentModel = "spring")
 @Component
 interface ProductMapper {
 
