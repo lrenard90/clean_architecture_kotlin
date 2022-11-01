@@ -2,6 +2,6 @@ package fr.renard.clean_architecture_domain.product.port.secondary.authenticatio
 
 interface AuthenticationService {
 
-  fun authenticate(login: String): void
+  fun authenticate(login: String)
 
 }
