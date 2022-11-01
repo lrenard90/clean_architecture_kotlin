@@ -18,6 +18,7 @@ allprojects {
 dependencies {
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     testImplementation("io.cucumber:cucumber-java:7.0.0")
     testImplementation("io.cucumber:cucumber-junit:7.0.0")
     testImplementation("org.assertj:assertj-core:3.12.2")

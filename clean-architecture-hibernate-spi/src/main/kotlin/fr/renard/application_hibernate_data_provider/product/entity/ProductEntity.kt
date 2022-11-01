@@ -17,14 +17,14 @@ class ProductEntity {
         sequenceName = "product_id_sequence",
         allocationSize = 1
     )
-    private var id: Long?
+    var id: Long?
 
     @Column(name = "name")
-    private var name: String
+    var name: String
 
-    constructor(product: Product) {
-        this.id = product.id
-        this.name = product.name
+    constructor(id: Long?, name: String) {
+        this.id = id
+        this.name = name
     }
 
 }

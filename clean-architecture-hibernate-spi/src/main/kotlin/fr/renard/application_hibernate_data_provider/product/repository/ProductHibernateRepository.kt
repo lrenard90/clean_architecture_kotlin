@@ -12,4 +12,5 @@ class ProductHibernateRepository(val productEntityHibernateRepository: ProductEn
         val productEntity = productMapper.toEntity(product)
         return productMapper.toDomain(productEntityHibernateRepository.save(productEntity))
     }
+
 }
