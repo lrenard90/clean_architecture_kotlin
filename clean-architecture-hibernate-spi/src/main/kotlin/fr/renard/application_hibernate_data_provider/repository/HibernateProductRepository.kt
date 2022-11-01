@@ -1,4 +1,4 @@
-package fr.renard.applicationhibernatespi.hibernate.repository
+package fr.renard.application_hibernate_data_provider.repository
 
 import fr.renard.clean_architecture_domain.product.model.Product
 import fr.renard.clean_architecture_domain.product.port.secondary.repository.ProductRepository

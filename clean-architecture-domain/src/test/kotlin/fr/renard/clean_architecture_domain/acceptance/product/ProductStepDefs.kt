@@ -8,7 +8,7 @@ import fr.renard.clean_architecture_domain.utils.mocks.ProductRepositoryMock
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
 import io.cucumber.java8.En
-import org.assertj.core.api.Java6Assertions.assertThat
+import org.assertj.core.api.Assertions.assertThat
 
 class ProductStepDefs: En {
 
