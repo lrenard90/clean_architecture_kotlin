@@ -1,9 +1,9 @@
-package fr.renard.clean_architecture_domain.utils.mocks
+package fr.renard.clean_architecture_domain.acceptance.product.repository
 
 import fr.renard.clean_architecture_domain.product.model.Product
 import fr.renard.clean_architecture_domain.product.port.secondary.repository.ProductRepository
 
-class ProductRepositoryMock : ProductRepository {
+class InMemoryProductRepository : ProductRepository {
 
     private var products: HashMap<Long, Product> = HashMap()
 

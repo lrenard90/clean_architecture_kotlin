@@ -4,7 +4,7 @@ import fr.renard.clean_architecture_domain.product.model.Product
 import fr.renard.clean_architecture_domain.product.model.ProductCreation
 import fr.renard.clean_architecture_domain.product.port.primary.usecase.ProductService
 import fr.renard.clean_architecture_domain.product.usecases.ProductServiceImpl
-import fr.renard.clean_architecture_domain.utils.mocks.ProductRepositoryMock
+import fr.renard.clean_architecture_domain.acceptance.product.repository.InMemoryProductRepository
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
 import io.cucumber.java8.En
@@ -12,7 +12,7 @@ import org.assertj.core.api.Assertions.assertThat
 
 class ProductStepDefs: En {
 
-    private val productService: ProductService = ProductServiceImpl(ProductRepositoryMock())
+    private val productService: ProductService = ProductServiceImpl(InMemoryProductRepository())
 
     private var product: Product? = null
 
