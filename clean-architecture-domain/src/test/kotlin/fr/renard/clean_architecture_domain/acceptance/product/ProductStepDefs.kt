@@ -18,7 +18,7 @@ class ProductStepDefs: En {
 
     @When("we create a product with name {string}")
     fun createProduct(name: String) {
-        this.product = createProductUseCase.createProduct(ProductCreation(name))
+        this.product = createProductUseCase.create(ProductCreation(name))
     }
 
     @Then("the product is created with name {string}")

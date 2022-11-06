@@ -9,7 +9,7 @@ import fr.renard.clean_architecture_domain.socle.dependency_injection.annotation
 @UseCase
 class CreateCreateProductUseCaseImpl(private var productRepository: ProductRepository) : CreateProductUseCase {
 
-    override fun createProduct(productCreation: ProductCreation): Product {
+    override fun create(productCreation: ProductCreation): Product {
         val productToCreate = productCreation.toProduct()
         return productRepository.save(productToCreate)
     }

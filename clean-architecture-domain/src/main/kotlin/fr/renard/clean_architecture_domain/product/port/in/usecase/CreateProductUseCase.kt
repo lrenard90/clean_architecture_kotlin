@@ -5,6 +5,6 @@ import fr.renard.clean_architecture_domain.product.model.ProductCreation
 
 interface CreateProductUseCase {
 
-    fun createProduct(productCreation: ProductCreation): Product
+    fun create(productCreation: ProductCreation): Product
 
 }
