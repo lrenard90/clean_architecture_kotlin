@@ -2,7 +2,7 @@ package fr.renard.application_hibernate_data_provider.product.repository
 
 import fr.renard.application_hibernate_data_provider.product.mapper.ProductMapper
 import fr.renard.clean_architecture_domain.product.model.Product
-import fr.renard.clean_architecture_domain.product.port.secondary.repository.ProductRepository
+import fr.renard.clean_architecture_domain.product.port.out.repository.ProductRepository
 import org.springframework.stereotype.Repository
 
 @Repository

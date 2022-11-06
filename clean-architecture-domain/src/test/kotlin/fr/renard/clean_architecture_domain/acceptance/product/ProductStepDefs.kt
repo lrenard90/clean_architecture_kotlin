@@ -2,8 +2,8 @@ package fr.renard.clean_architecture_domain.acceptance.product
 
 import fr.renard.clean_architecture_domain.product.model.Product
 import fr.renard.clean_architecture_domain.product.model.ProductCreation
-import fr.renard.clean_architecture_domain.product.port.primary.usecase.ProductService
-import fr.renard.clean_architecture_domain.product.usecases.ProductServiceImpl
+import fr.renard.clean_architecture_domain.product.port.`in`.usecase.CreateProductUseCase
+import fr.renard.clean_architecture_domain.product.usecases.CreateCreateProductUseCaseImpl
 import fr.renard.clean_architecture_domain.acceptance.product.repository.InMemoryProductRepository
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
@@ -12,13 +12,13 @@ import org.assertj.core.api.Assertions.assertThat
 
 class ProductStepDefs: En {
 
-    private val productService: ProductService = ProductServiceImpl(InMemoryProductRepository())
+    private val createProductUseCase: CreateProductUseCase = CreateCreateProductUseCaseImpl(InMemoryProductRepository())
 
     private var product: Product? = null
 
     @When("we create a product with name {string}")
     fun createProduct(name: String) {
-        this.product = productService.createProduct(ProductCreation(name))
+        this.product = createProductUseCase.createProduct(ProductCreation(name))
     }
 
     @Then("the product is created with name {string}")

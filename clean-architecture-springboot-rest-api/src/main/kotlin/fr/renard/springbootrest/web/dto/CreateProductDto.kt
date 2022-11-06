@@ -6,4 +6,8 @@ class CreateProductDto(val name: String) {
     fun toProductCreation(): ProductCreation {
         return ProductCreation(name)
     }
+
+    override fun toString(): String {
+        return "CreateProductDto(name='$name')"
+    }
 }

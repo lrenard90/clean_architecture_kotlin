@@ -1,0 +1,76 @@
+2022-11-06 22:52:16.789  INFO 19884 --- [background-preinit] o.h.validator.internal.util.Version      : HV000001: Hibernate Validator 6.2.3.Final
+2022-11-06 22:52:16.802  INFO 19884 --- [main] f.r.s.SpringbootRestApplicationKt        : Starting SpringbootRestApplicationKt using Java 17.0.2 on DESKTOP-Q6MDDL2 with PID 19884 (C:\Users\Lucas\Documents\dev\workspace\clean_architecture_kotlin\clean-architecture-springboot-rest-api\build\classes\kotlin\main started by Lucas in C:\Users\Lucas\Documents\dev\workspace\clean_architecture_kotlin)
+2022-11-06 22:52:16.803  INFO 19884 --- [main] f.r.s.SpringbootRestApplicationKt        : No active profile set, falling back to 1 default profile: "default"
+2022-11-06 22:52:17.368  INFO 19884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-06 22:52:17.435  INFO 19884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 1 JPA repository interfaces.
+2022-11-06 22:52:18.187  INFO 19884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-06 22:52:18.198  INFO 19884 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8080"]
+2022-11-06 22:52:18.199  INFO 19884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-06 22:52:18.199  INFO 19884 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-11-06 22:52:18.305  INFO 19884 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-06 22:52:18.305  INFO 19884 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1449 ms
+2022-11-06 22:52:18.436  INFO 19884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-06 22:52:18.675  INFO 19884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-06 22:52:18.727  INFO 19884 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-06 22:52:18.798  INFO 19884 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-11-06 22:52:19.008  INFO 19884 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-06 22:52:19.186  INFO 19884 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-11-06 22:52:19.750  INFO 19884 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-06 22:52:19.761  INFO 19884 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-06 22:52:20.137  WARN 19884 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-06 22:52:20.452  INFO 19884 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8080"]
+2022-11-06 22:52:20.472  INFO 19884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-06 22:52:20.481  INFO 19884 --- [main] f.r.s.SpringbootRestApplicationKt        : Started SpringbootRestApplicationKt in 4.265 seconds (JVM running for 4.929)
+2022-11-06 22:52:32.164  INFO 19884 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-06 22:52:32.164  INFO 19884 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2022-11-06 22:52:32.350  INFO 19884 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-11-06 22:52:32.352  INFO 19884 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-11-06 22:53:20.417  INFO 21084 --- [background-preinit] o.h.validator.internal.util.Version      : HV000001: Hibernate Validator 6.2.3.Final
+2022-11-06 22:53:20.425  INFO 21084 --- [main] f.r.s.SpringbootRestApplicationKt        : Starting SpringbootRestApplicationKt using Java 17.0.2 on DESKTOP-Q6MDDL2 with PID 21084 (C:\Users\Lucas\Documents\dev\workspace\clean_architecture_kotlin\clean-architecture-springboot-rest-api\build\classes\kotlin\main started by Lucas in C:\Users\Lucas\Documents\dev\workspace\clean_architecture_kotlin)
+2022-11-06 22:53:20.426  INFO 21084 --- [main] f.r.s.SpringbootRestApplicationKt        : No active profile set, falling back to 1 default profile: "default"
+2022-11-06 22:53:21.033  INFO 21084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-06 22:53:21.113  INFO 21084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 1 JPA repository interfaces.
+2022-11-06 22:53:21.850  INFO 21084 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-06 22:53:21.860  INFO 21084 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8080"]
+2022-11-06 22:53:21.861  INFO 21084 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-06 22:53:21.861  INFO 21084 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-11-06 22:53:21.965  INFO 21084 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-06 22:53:21.965  INFO 21084 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1488 ms
+2022-11-06 22:53:22.095  INFO 21084 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-06 22:53:22.337  INFO 21084 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-06 22:53:22.391  INFO 21084 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-06 22:53:22.463  INFO 21084 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-11-06 22:53:22.676  INFO 21084 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-06 22:53:22.857  INFO 21084 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-11-06 22:53:23.445  INFO 21084 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-06 22:53:23.457  INFO 21084 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-06 22:53:23.850  WARN 21084 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-06 22:53:24.163  INFO 21084 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8080"]
+2022-11-06 22:53:24.183  INFO 21084 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-06 22:53:24.193  INFO 21084 --- [main] f.r.s.SpringbootRestApplicationKt        : Started SpringbootRestApplicationKt in 4.344 seconds (JVM running for 5.008)
+2022-11-06 22:53:50.057  INFO 21084 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-06 22:53:50.057  INFO 21084 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2022-11-06 22:53:50.247  INFO 21084 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-11-06 22:53:50.249  INFO 21084 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-11-06 22:54:28.202  INFO 3540 --- [background-preinit] o.h.validator.internal.util.Version      : HV000001: Hibernate Validator 6.2.3.Final
+2022-11-06 22:54:28.215  INFO 3540 --- [main] f.r.s.SpringbootRestApplicationKt        : Starting SpringbootRestApplicationKt using Java 17.0.2 on DESKTOP-Q6MDDL2 with PID 3540 (C:\Users\Lucas\Documents\dev\workspace\clean_architecture_kotlin\clean-architecture-springboot-rest-api\build\classes\kotlin\main started by Lucas in C:\Users\Lucas\Documents\dev\workspace\clean_architecture_kotlin)
+2022-11-06 22:54:28.216  INFO 3540 --- [main] f.r.s.SpringbootRestApplicationKt        : No active profile set, falling back to 1 default profile: "default"
+2022-11-06 22:54:28.805  INFO 3540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-06 22:54:28.880  INFO 3540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 1 JPA repository interfaces.
+2022-11-06 22:54:29.646  INFO 3540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-06 22:54:29.657  INFO 3540 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8080"]
+2022-11-06 22:54:29.658  INFO 3540 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-06 22:54:29.658  INFO 3540 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-11-06 22:54:29.767  INFO 3540 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-06 22:54:29.767  INFO 3540 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1488 ms
+2022-11-06 22:54:29.903  INFO 3540 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-06 22:54:30.145  INFO 3540 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-06 22:54:30.198  INFO 3540 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-06 22:54:30.269  INFO 3540 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-11-06 22:54:30.495  INFO 3540 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-06 22:54:30.639  WARN 3540 --- [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000339: Could not obtain connection metadata: org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de données est déjà fermée (pour désactiver la fermeture automatique à l'arrêt de la VM, ajoutez "; DB_CLOSE_ON_EXIT = FALSE" à l'URL db)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-214]
+2022-11-06 22:54:30.642 ERROR 3540 --- [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+2022-11-06 22:54:30.643  WARN 3540 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+2022-11-06 22:54:30.643  INFO 3540 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-11-06 22:54:30.645  INFO 3540 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

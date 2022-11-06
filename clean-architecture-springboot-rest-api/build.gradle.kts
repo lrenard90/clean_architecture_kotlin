@@ -18,6 +18,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation(project(":clean-architecture-domain"))
     implementation(project(":clean-architecture-hibernate-spi"))
+    implementation("commons-logging:commons-logging:1.2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("com.h2database:h2:2.1.214")
 }
