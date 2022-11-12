@@ -7,7 +7,7 @@ import fr.renard.clean_architecture_domain.product.port.out.repository.ProductRe
 import fr.renard.clean_architecture_domain.socle.dependency_injection.annotation.UseCase
 
 @UseCase
-class CreateCreateProductUseCaseImpl(private var productRepository: ProductRepository) : CreateProductUseCase {
+class CreateProductUseCaseImpl(private var productRepository: ProductRepository) : CreateProductUseCase {
 
     override fun create(productCreation: ProductCreation): Product {
         val productToCreate = productCreation.toProduct()

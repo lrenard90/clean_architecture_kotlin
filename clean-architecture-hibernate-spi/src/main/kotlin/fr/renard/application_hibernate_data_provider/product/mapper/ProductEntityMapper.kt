@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 
 @Mapper(componentModel = "spring")
 @Component
-interface ProductMapper {
+interface ProductEntityMapper {
 
     fun toEntity(product: Product): ProductEntity
 

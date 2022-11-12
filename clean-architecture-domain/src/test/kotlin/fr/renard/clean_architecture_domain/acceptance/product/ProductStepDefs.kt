@@ -3,7 +3,7 @@ package fr.renard.clean_architecture_domain.acceptance.product
 import fr.renard.clean_architecture_domain.product.model.Product
 import fr.renard.clean_architecture_domain.product.model.ProductCreation
 import fr.renard.clean_architecture_domain.product.port.`in`.usecase.CreateProductUseCase
-import fr.renard.clean_architecture_domain.product.usecases.CreateCreateProductUseCaseImpl
+import fr.renard.clean_architecture_domain.product.usecases.CreateProductUseCaseImpl
 import fr.renard.clean_architecture_domain.acceptance.product.repository.InMemoryProductRepository
 import io.cucumber.java.en.Then
 import io.cucumber.java.en.When
@@ -12,7 +12,7 @@ import org.assertj.core.api.Assertions.assertThat
 
 class ProductStepDefs: En {
 
-    private val createProductUseCase: CreateProductUseCase = CreateCreateProductUseCaseImpl(InMemoryProductRepository())
+    private val createProductUseCase: CreateProductUseCase = CreateProductUseCaseImpl(InMemoryProductRepository())
 
     private var product: Product? = null
 
