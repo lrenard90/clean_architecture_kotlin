@@ -1,10 +1,10 @@
 package fr.renard.springbootrest.product.web.dto
 
-import fr.renard.clean_architecture_domain.product.model.ProductCreation
+import fr.renard.clean_architecture_domain.product.usecases.boundary.dto.ProductCreationRequest
 
 class CreateProductDto(val name: String) {
-    fun toProductCreation(): ProductCreation {
-        return ProductCreation(name)
+    fun toProductCreation(): ProductCreationRequest {
+        return ProductCreationRequest(name)
     }
 
     override fun toString(): String {

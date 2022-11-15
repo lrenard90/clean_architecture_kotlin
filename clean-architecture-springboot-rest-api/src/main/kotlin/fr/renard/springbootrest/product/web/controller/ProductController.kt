@@ -1,7 +1,7 @@
 package fr.renard.springbootrest.product.web.controller
 
-import fr.renard.clean_architecture_domain.product.model.Product
-import fr.renard.clean_architecture_domain.product.port.`in`.usecase.CreateProductUseCase
+import fr.renard.clean_architecture_domain.product.usecases.CreateProductUseCase
+import fr.renard.clean_architecture_domain.product.usecases.boundary.dto.ProductCreationResponse
 import fr.renard.springbootrest.product.web.dto.CreateProductDto
 import fr.renard.springbootrest.product.web.dto.ProductDto
 import org.slf4j.Logger
@@ -20,7 +20,7 @@ class ProductController(private var createProductUseCase: CreateProductUseCase) 
     @PostMapping
     fun createProduct(@RequestBody createProductDto: CreateProductDto): ProductDto {
         logger.debug("Creation of product {}", createProductDto)
-        val createdProduct: Product = createProductUseCase.create(createProductDto.toProductCreation())
+        val createdProduct: ProductCreationResponse = createProductUseCase.create(createProductDto.toProductCreation())
         return ProductDto(createdProduct);
     }
 

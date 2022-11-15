@@ -1,6 +1,7 @@
 package fr.renard.springbootrest.product.web.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import fr.renard.springbootrest.e2e.configuration.E2eApiTest
 import fr.renard.springbootrest.product.web.dto.CreateProductDto
 import org.junit.jupiter.api.Test
 import org.mockito.ArgumentMatchers
@@ -11,9 +12,9 @@ import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.post
 
-@SpringBootTest
 @AutoConfigureMockMvc
-internal class ProductControllerE2eTest @Autowired constructor(val mockMvc: MockMvc, val objectMapper: ObjectMapper) {
+internal class ProductControllerE2eTest @Autowired constructor(val mockMvc: MockMvc, val objectMapper: ObjectMapper):
+    E2eApiTest() {
 
     private val BASE_URL = "/api/products"
 

@@ -27,6 +27,7 @@ internal class ProductHibernateRepositoryIntegrationTest @Autowired constructor(
     ) {
         assertThat(savedProduct.id).isNotNull;
         assertThat(savedProduct.name).isEqualTo(productName);
+        assertThat(savedProduct.toSnapshot().privateAttribute).isNotNull;
     }
 
 }

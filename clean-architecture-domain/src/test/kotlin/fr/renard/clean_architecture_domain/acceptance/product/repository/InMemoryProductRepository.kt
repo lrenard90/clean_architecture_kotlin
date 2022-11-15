@@ -1,7 +1,7 @@
 package fr.renard.clean_architecture_domain.acceptance.product.repository
 
 import fr.renard.clean_architecture_domain.product.model.Product
-import fr.renard.clean_architecture_domain.product.port.out.repository.ProductRepository
+import fr.renard.clean_architecture_domain.product.ports.ProductRepository
 
 class InMemoryProductRepository : ProductRepository {
 

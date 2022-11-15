@@ -1,6 +1,5 @@
 package fr.renard.application_hibernate_data_provider.product.entity
 
-import fr.renard.clean_architecture_domain.product.model.Product
 import javax.persistence.*
 
 @Entity
@@ -22,9 +21,13 @@ class ProductEntity {
     @Column(name = "name")
     var name: String
 
-    constructor(id: Long?, name: String) {
+    @Column(name = "private_attribute")
+    var privateAttribute: String
+
+    constructor(id: Long?, name: String, privateAttribute: String) {
         this.id = id
         this.name = name
+        this.privateAttribute = privateAttribute
     }
 
 }

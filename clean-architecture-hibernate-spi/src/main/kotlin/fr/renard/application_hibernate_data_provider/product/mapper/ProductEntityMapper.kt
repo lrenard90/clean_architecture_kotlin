@@ -2,6 +2,7 @@ package fr.renard.application_hibernate_data_provider.product.mapper
 
 import fr.renard.application_hibernate_data_provider.product.entity.ProductEntity
 import fr.renard.clean_architecture_domain.product.model.Product
+import fr.renard.clean_architecture_domain.product.model.ProductState
 import org.mapstruct.Mapper
 import org.springframework.stereotype.Component
 
@@ -9,8 +10,8 @@ import org.springframework.stereotype.Component
 @Component
 interface ProductEntityMapper {
 
-    fun toEntity(product: Product): ProductEntity
+    fun toEntity(product: ProductState): ProductEntity
 
-    fun toDomain(product: ProductEntity): Product
+    fun toState(product: ProductEntity): ProductState
 
 }
