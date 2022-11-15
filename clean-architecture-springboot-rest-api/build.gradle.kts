@@ -10,6 +10,8 @@ repositories {
     mavenCentral()
 }
 
+val cucumberVersion = "7.8.1";
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.7.5")
@@ -20,6 +22,19 @@ dependencies {
     implementation(project(":clean-architecture-hibernate-spi"))
     implementation("commons-logging:commons-logging:1.2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.cucumber:cucumber-java:$cucumberVersion")
+    testImplementation("io.cucumber:cucumber-junit:$cucumberVersion")
+    testImplementation("io.cucumber:cucumber-java8:$cucumberVersion")
+    testImplementation("org.testcontainers:testcontainers:1.17.5")
+    testImplementation(kotlin("test"))
+    testImplementation("org.junit.platform:junit-platform-suite-api:1.9.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+    testImplementation("io.rest-assured:rest-assured:5.2.0") {
+        // Conflict into io.rest-assured:rest-assured:5.2.0
+        exclude("org.codehaus.groovy")
+    }
+    testImplementation("org.testcontainers:junit-jupiter:1.17.5")
+    testImplementation("org.testcontainers:postgresql:1.17.5")
     implementation("com.h2database:h2:2.1.214")
 }
 

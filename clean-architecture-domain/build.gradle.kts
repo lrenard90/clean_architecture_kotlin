@@ -7,13 +7,15 @@ repositories {
     mavenCentral()
 }
 
+val cucumberVersion = "7.8.1";
+
 dependencies {
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
-    testImplementation("io.cucumber:cucumber-java:7.3.2")
-    testImplementation("io.cucumber:cucumber-junit:7.3.2")
+    testImplementation("io.cucumber:cucumber-java:$cucumberVersion")
+    testImplementation("io.cucumber:cucumber-junit:$cucumberVersion")
+    testImplementation("io.cucumber:cucumber-java8:$cucumberVersion")
     testImplementation("org.assertj:assertj-core:3.22.0")
-    implementation("io.cucumber:cucumber-java8:7.3.2")
 }
 
 tasks.jar {enabled = true}

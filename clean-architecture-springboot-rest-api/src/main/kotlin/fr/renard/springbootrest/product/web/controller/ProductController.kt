@@ -1,9 +1,9 @@
-package fr.renard.springbootrest.web.controller
+package fr.renard.springbootrest.product.web.controller
 
 import fr.renard.clean_architecture_domain.product.model.Product
 import fr.renard.clean_architecture_domain.product.port.`in`.usecase.CreateProductUseCase
-import fr.renard.springbootrest.web.dto.CreateProductDto
-import fr.renard.springbootrest.web.dto.ProductDto
+import fr.renard.springbootrest.product.web.dto.CreateProductDto
+import fr.renard.springbootrest.product.web.dto.ProductDto
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.PostMapping

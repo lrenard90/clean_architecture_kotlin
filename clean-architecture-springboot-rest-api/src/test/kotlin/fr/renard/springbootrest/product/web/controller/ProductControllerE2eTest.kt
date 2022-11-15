@@ -1,7 +1,7 @@
-package fr.renard.springbootrest.web.controller
+package fr.renard.springbootrest.product.web.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import fr.renard.springbootrest.web.dto.CreateProductDto
+import fr.renard.springbootrest.product.web.dto.CreateProductDto
 import org.junit.jupiter.api.Test
 import org.mockito.ArgumentMatchers
 import org.springframework.beans.factory.annotation.Autowired

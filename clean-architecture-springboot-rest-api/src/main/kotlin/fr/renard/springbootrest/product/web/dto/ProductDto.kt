@@ -1,4 +1,4 @@
-package fr.renard.springbootrest.web.dto
+package fr.renard.springbootrest.product.web.dto
 
 import fr.renard.clean_architecture_domain.product.model.Product
 
