@@ -3,7 +3,7 @@ package fr.renard.clean_architecture_domain.acceptance.product
 import fr.renard.clean_architecture_domain.product.usecases.boundary.dto.ProductCreationRequest
 import fr.renard.clean_architecture_domain.product.usecases.CreateProductUseCase
 import fr.renard.clean_architecture_domain.product.usecases.impl.CreateProductUseCaseImpl
-import fr.renard.clean_architecture_domain.acceptance.product.repository.InMemoryProductRepository
+import fr.renard.clean_architecture_domain.shared.repository.InMemoryProductRepository
 import fr.renard.clean_architecture_domain.product.usecases.boundary.dto.ProductCreationResponse
 import fr.renard.clean_architecture_domain.product.usecases.boundary.mapper.impl.CreateProductUseCaseConverterImpl
 import io.cucumber.java.en.Then

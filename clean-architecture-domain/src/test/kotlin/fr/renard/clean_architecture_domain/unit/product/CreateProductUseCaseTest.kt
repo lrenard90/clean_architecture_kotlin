@@ -1,6 +1,6 @@
 package fr.renard.clean_architecture_domain.unit.product
 
-import fr.renard.clean_architecture_domain.acceptance.product.repository.InMemoryProductRepository
+import fr.renard.clean_architecture_domain.shared.repository.InMemoryProductRepository
 import fr.renard.clean_architecture_domain.product.usecases.boundary.dto.ProductCreationRequest
 import fr.renard.clean_architecture_domain.product.usecases.boundary.mapper.impl.CreateProductUseCaseConverterImpl
 import fr.renard.clean_architecture_domain.product.usecases.impl.CreateProductUseCaseImpl

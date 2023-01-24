@@ -1,4 +1,4 @@
-package fr.renard.clean_architecture_domain.acceptance.product.repository
+package fr.renard.clean_architecture_domain.shared.repository
 
 import fr.renard.clean_architecture_domain.product.model.Product
 import fr.renard.clean_architecture_domain.product.ports.ProductRepository

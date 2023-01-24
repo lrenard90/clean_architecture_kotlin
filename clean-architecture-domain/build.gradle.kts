@@ -15,7 +15,9 @@ dependencies {
     testImplementation("io.cucumber:cucumber-java:$cucumberVersion")
     testImplementation("io.cucumber:cucumber-junit:$cucumberVersion")
     testImplementation("io.cucumber:cucumber-java8:$cucumberVersion")
+//    testImplementation("io.cucumber:cucumber-junit-platform-engine:7.8.1")
     testImplementation("org.assertj:assertj-core:3.22.0")
+    testImplementation("org.junit.platform:junit-platform-suite-api:1.9.1")
 }
 
 tasks.jar {enabled = true}
