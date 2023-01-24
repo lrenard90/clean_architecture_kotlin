@@ -10,7 +10,6 @@ repositories {
     mavenCentral()
 }
 
-val cucumberVersion = "7.8.1";
 val restAssuredVersion = "5.2.0";
 
 dependencies {
@@ -23,10 +22,6 @@ dependencies {
     implementation(project(":clean-architecture-hibernate-spi"))
     implementation("commons-logging:commons-logging:1.2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("io.cucumber:cucumber-java:$cucumberVersion")
-    testImplementation("io.cucumber:cucumber-junit:$cucumberVersion")
-    testImplementation("io.cucumber:cucumber-java8:$cucumberVersion")
-    testImplementation("io.cucumber:cucumber-spring:7.9.0")
     testImplementation("org.testcontainers:testcontainers:1.17.5")
     testImplementation(kotlin("test"))
     testImplementation("org.junit.platform:junit-platform-suite-api:1.9.1")
