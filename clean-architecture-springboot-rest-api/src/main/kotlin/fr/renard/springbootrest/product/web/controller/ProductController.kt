@@ -20,7 +20,7 @@ class ProductController(private var createProductUseCase: CreateProductUseCase) 
     @PostMapping
     fun createProduct(@RequestBody createProductDto: CreateProductDto): ProductDto {
         logger.debug("Creation of product {}", createProductDto)
-        val createdProduct: ProductCreationResponse = createProductUseCase.create(createProductDto.toProductCreation())
+        val createdProduct: ProductCreationResponse = createProductUseCase.handle(createProductDto.toProductCreation())
         return ProductDto(createdProduct);
     }
 

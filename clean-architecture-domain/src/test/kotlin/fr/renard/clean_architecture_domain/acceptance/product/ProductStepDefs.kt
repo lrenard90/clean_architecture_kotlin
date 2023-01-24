@@ -19,7 +19,7 @@ class ProductStepDefs: En {
 
     @When("we create a product with name {string}")
     fun createProduct(name: String) {
-        this.productCreationResponse = createProductUseCase.create(ProductCreationRequest(name))
+        this.productCreationResponse = createProductUseCase.handle(ProductCreationRequest(name))
     }
 
     @Then("the product is created with name {string}")
