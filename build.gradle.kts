@@ -23,6 +23,7 @@ dependencies {
     testImplementation("io.cucumber:cucumber-junit:7.0.0")
     testImplementation("org.assertj:assertj-core:3.12.2")
     implementation("io.cucumber:cucumber-java8:7.3.2")
+    implementation(kotlin("script-runtime"))
 }
 
 tasks.test {

@@ -2,7 +2,6 @@ package fr.renard.clean_architecture_domain.acceptance.product
 
 import fr.renard.clean_architecture_domain.product.usecases.boundary.dto.ProductCreationRequest
 import fr.renard.clean_architecture_domain.product.usecases.CreateProductUseCase
-import fr.renard.clean_architecture_domain.product.usecases.impl.CreateProductUseCaseImpl
 import fr.renard.clean_architecture_domain.shared.repository.InMemoryProductRepository
 import fr.renard.clean_architecture_domain.product.usecases.boundary.dto.ProductCreationResponse
 import fr.renard.clean_architecture_domain.product.usecases.boundary.mapper.impl.CreateProductUseCaseConverterImpl
@@ -13,7 +12,7 @@ import org.assertj.core.api.Assertions.assertThat
 
 class ProductStepDefs: En {
 
-    private val createProductUseCase: CreateProductUseCase = CreateProductUseCaseImpl(InMemoryProductRepository(), CreateProductUseCaseConverterImpl())
+    private val createProductUseCase: CreateProductUseCase = CreateProductUseCase(InMemoryProductRepository(), CreateProductUseCaseConverterImpl())
 
     private var productCreationResponse: ProductCreationResponse? = null
 
