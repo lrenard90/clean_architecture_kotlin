@@ -16,4 +16,8 @@ class InMemoryMessageRepository : MessageRepository {
     fun messages(): Collection<Message> {
         return messagesById.values
     }
+
+    fun setMessages(messages: List<Message>) {
+        messagesById = HashMap(messages.associateBy { it.id })
+    }
 }

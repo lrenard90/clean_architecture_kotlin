@@ -16,24 +16,18 @@ import java.util.*
 @DisplayName("Feature: User can post a message")
 class PostMessageUseCaseHandlerTest {
 
-    private lateinit var messageRepository: InMemoryMessageRepository
-    private lateinit var dateProvider: FakeDateProvider
-    private lateinit var postMessageUseCaseHandler: PostMessageUseCaseHandler
-    private lateinit var testContext: TestContext
+    private lateinit var fixture: TestFixture
 
     @BeforeEach
     fun setup() {
-        messageRepository = InMemoryMessageRepository()
-        dateProvider = FakeDateProvider()
-        postMessageUseCaseHandler = PostMessageUseCaseHandler(messageRepository, dateProvider);
-        testContext = TestContext()
+        fixture = TestFixture(InMemoryMessageRepository(), FakeDateProvider())
     }
 
     @Test
     fun `User can post a valid message on his timeline`() {
-        givenNowIs(LocalDateTime.of(2020, 2, 14, 17, 46, 51));
+        fixture.givenNowIs(LocalDateTime.of(2020, 2, 14, 17, 46, 51));
 
-        whenUserPostsAMessage(
+        fixture.whenUserPostsAMessage(
             PostMessageRequest(
                 UUID.fromString("e1fd6ad4-83d5-4f8d-a788-0132c9b33318"),
                 "Alice",
@@ -41,7 +35,7 @@ class PostMessageUseCaseHandlerTest {
             )
         );
 
-        thenPostedMessageShouldBe(
+        fixture.thenPostedMessageShouldBe(
             Message(
                 UUID.fromString("e1fd6ad4-83d5-4f8d-a788-0132c9b33318"),
                 "Alice",
@@ -56,9 +50,9 @@ class PostMessageUseCaseHandlerTest {
     inner class MessageSizeLimitation {
         @Test
         fun `User cannot post a message with more than 280 characters`() {
-            givenNowIs(LocalDateTime.of(2020, 2, 14, 17, 46, 51));
+            fixture.givenNowIs(LocalDateTime.of(2020, 2, 14, 17, 46, 51));
 
-            whenUserPostsAMessage(
+            fixture.whenUserPostsAMessage(
                 PostMessageRequest(
                     UUID.randomUUID(),
                     "Alice",
@@ -66,7 +60,7 @@ class PostMessageUseCaseHandlerTest {
                 )
             )
 
-            thenErrorShouldBe("Message text must be less than 280 characters")
+            fixture.thenErrorShouldBe("Message text must be less than 280 characters")
         }
     }
 
@@ -75,9 +69,9 @@ class PostMessageUseCaseHandlerTest {
     inner class MessageNotEmpty {
         @Test
         fun `User cannot post an empty message`() {
-            givenNowIs(LocalDateTime.of(2020, 2, 14, 17, 46, 51));
+            fixture.givenNowIs(LocalDateTime.of(2020, 2, 14, 17, 46, 51));
 
-            whenUserPostsAMessage(
+            fixture.whenUserPostsAMessage(
                 PostMessageRequest(
                     UUID.randomUUID(),
                     "Alice",
@@ -85,14 +79,14 @@ class PostMessageUseCaseHandlerTest {
                 )
             )
 
-            thenErrorShouldBe("Message text must not be blank")
+            fixture.thenErrorShouldBe("Message text must not be blank")
         }
 
         @Test
         fun `User cannot post an blank message`() {
-            givenNowIs(LocalDateTime.of(2020, 2, 14, 17, 46, 51));
+            fixture.givenNowIs(LocalDateTime.of(2020, 2, 14, 17, 46, 51));
 
-            whenUserPostsAMessage(
+            fixture.whenUserPostsAMessage(
                 PostMessageRequest(
                     UUID.randomUUID(),
                     "Alice",
@@ -100,31 +94,37 @@ class PostMessageUseCaseHandlerTest {
                 )
             )
 
-            thenErrorShouldBe("Message text must not be blank")
+            fixture.thenErrorShouldBe("Message text must not be blank")
         }
     }
 
-    private fun givenNowIs(now: LocalDateTime) {
-        dateProvider.now = now;
-    }
+    inner class TestFixture(private val messageRepository: InMemoryMessageRepository, private val dateProvider: FakeDateProvider) {
+        private val postMessageUseCaseHandler: PostMessageUseCaseHandler = PostMessageUseCaseHandler(
+            messageRepository,
+            dateProvider
+        )
+        private var errorMessage: String? = null
 
-    private fun whenUserPostsAMessage(postMessageRequest: PostMessageRequest) {
-        try {
-            postMessageUseCaseHandler.handle(postMessageRequest)
-        } catch (exception: Exception) {
-            testContext.errorMessage = exception.message
+        fun givenNowIs(now: LocalDateTime) {
+            dateProvider.now = now;
+        }
+
+        fun whenUserPostsAMessage(postMessageRequest: PostMessageRequest) {
+            try {
+                postMessageUseCaseHandler.handle(postMessageRequest)
+            } catch (exception: Exception) {
+                errorMessage = exception.message
+            }
+        }
+
+        fun thenPostedMessageShouldBe(expectedMessage: Message) {
+            assertThat(
+                messageRepository.messages()
+                    .map { message: Message -> message.snapshot() }).contains(expectedMessage.snapshot())
+        }
+
+        fun thenErrorShouldBe(error: String) {
+            assertThat(errorMessage).isEqualTo(error)
         }
     }
-
-    private fun thenPostedMessageShouldBe(expectedMessage: Message) {
-        assertThat(
-            messageRepository.messages()
-                .map { message: Message -> message.snapshot() }).contains(expectedMessage.snapshot())
-    }
-
-    private fun thenErrorShouldBe(error: String) {
-        assertThat(testContext.errorMessage).isEqualTo(error)
-    }
-
-    inner class TestContext(var errorMessage: String? = null) {}
 }
