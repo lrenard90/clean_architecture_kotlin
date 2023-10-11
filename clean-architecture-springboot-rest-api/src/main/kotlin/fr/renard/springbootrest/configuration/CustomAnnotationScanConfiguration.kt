@@ -2,6 +2,9 @@ package fr.renard.springbootrest.configuration
 
 import fr.renard.clean_architecture_domain.socle.dependency_injection.annotation.Mapper
 import fr.renard.clean_architecture_domain.socle.dependency_injection.annotation.UseCase
+import fr.renard.clean_architecture_domain.socle.time.CurrentDateProvider
+import fr.renard.clean_architecture_domain.socle.time.DateProvider
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.FilterType
@@ -14,4 +17,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 )
 @EnableJpaRepositories(basePackages = ["fr.renard.application_hibernate_data_provider"])
 class CustomAnnotationScanConfiguration {
+
+    @Bean
+    fun dateProvider(): DateProvider {
+        return CurrentDateProvider()
+    }
+
 }
