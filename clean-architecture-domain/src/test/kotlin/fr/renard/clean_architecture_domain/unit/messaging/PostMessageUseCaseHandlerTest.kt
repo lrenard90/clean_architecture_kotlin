@@ -2,7 +2,7 @@ package fr.renard.clean_architecture_domain.unit.messaging
 
 import fr.renard.clean_architecture_domain.messaging.model.Message
 import fr.renard.clean_architecture_domain.messaging.usecases.PostMessageUseCaseHandler
-import fr.renard.clean_architecture_domain.messaging.usecases.dto.PostMessageRequest
+import fr.renard.clean_architecture_domain.messaging.usecases.dto.PostMessageRequestDTO
 import fr.renard.clean_architecture_domain.shared.time.FakeDateProvider
 import fr.renard.clean_architecture_domain.shared.repository.InMemoryMessageRepository
 import org.assertj.core.api.Assertions.assertThat
@@ -20,7 +20,7 @@ class PostMessageUseCaseHandlerTest {
 
     @BeforeEach
     fun setup() {
-        fixture = TestFixture(InMemoryMessageRepository(), FakeDateProvider())
+        fixture = TestFixture()
     }
 
     @Test
@@ -28,7 +28,7 @@ class PostMessageUseCaseHandlerTest {
         fixture.givenNowIs(LocalDateTime.of(2020, 2, 14, 17, 46, 51));
 
         fixture.whenUserPostsAMessage(
-            PostMessageRequest(
+            PostMessageRequestDTO(
                 UUID.fromString("e1fd6ad4-83d5-4f8d-a788-0132c9b33318"),
                 "Alice",
                 "Hello world!"
@@ -53,7 +53,7 @@ class PostMessageUseCaseHandlerTest {
             fixture.givenNowIs(LocalDateTime.of(2020, 2, 14, 17, 46, 51));
 
             fixture.whenUserPostsAMessage(
-                PostMessageRequest(
+                PostMessageRequestDTO(
                     UUID.randomUUID(),
                     "Alice",
                     "a".repeat(281)
@@ -72,7 +72,7 @@ class PostMessageUseCaseHandlerTest {
             fixture.givenNowIs(LocalDateTime.of(2020, 2, 14, 17, 46, 51));
 
             fixture.whenUserPostsAMessage(
-                PostMessageRequest(
+                PostMessageRequestDTO(
                     UUID.randomUUID(),
                     "Alice",
                     ""
@@ -87,7 +87,7 @@ class PostMessageUseCaseHandlerTest {
             fixture.givenNowIs(LocalDateTime.of(2020, 2, 14, 17, 46, 51));
 
             fixture.whenUserPostsAMessage(
-                PostMessageRequest(
+                PostMessageRequestDTO(
                     UUID.randomUUID(),
                     "Alice",
                     " "
@@ -98,7 +98,9 @@ class PostMessageUseCaseHandlerTest {
         }
     }
 
-    inner class TestFixture(private val messageRepository: InMemoryMessageRepository, private val dateProvider: FakeDateProvider) {
+    inner class TestFixture {
+        private val messageRepository = InMemoryMessageRepository()
+        private val dateProvider = FakeDateProvider()
         private val postMessageUseCaseHandler: PostMessageUseCaseHandler = PostMessageUseCaseHandler(
             messageRepository,
             dateProvider
@@ -109,9 +111,9 @@ class PostMessageUseCaseHandlerTest {
             dateProvider.now = now;
         }
 
-        fun whenUserPostsAMessage(postMessageRequest: PostMessageRequest) {
+        fun whenUserPostsAMessage(postMessageRequestDTO: PostMessageRequestDTO) {
             try {
-                postMessageUseCaseHandler.handle(postMessageRequest)
+                postMessageUseCaseHandler.handle(postMessageRequestDTO)
             } catch (exception: Exception) {
                 errorMessage = exception.message
             }

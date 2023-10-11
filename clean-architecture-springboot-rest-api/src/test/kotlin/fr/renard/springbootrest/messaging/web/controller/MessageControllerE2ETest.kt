@@ -1,7 +1,7 @@
 package fr.renard.springbootrest.messaging.web.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import fr.renard.clean_architecture_domain.messaging.usecases.dto.PostMessageRequest
+import fr.renard.clean_architecture_domain.messaging.usecases.dto.PostMessageRequestDTO
 import fr.renard.springbootrest.e2e.configuration.E2eApiTest
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -19,7 +19,7 @@ internal class MessageControllerE2ETest @Autowired constructor(val mockMvc: Mock
 
     @Test
     fun `POST a message OK`() {
-        val postMessageRequest = PostMessageRequest(
+        val postMessageRequestDTO = PostMessageRequestDTO(
             UUID.fromString("a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"),
             "Alice",
             "Hello world!"
@@ -27,7 +27,7 @@ internal class MessageControllerE2ETest @Autowired constructor(val mockMvc: Mock
 
         mockMvc.post(BASE_URL) {
             contentType = MediaType.APPLICATION_JSON
-            content = objectMapper.writeValueAsString(postMessageRequest)
+            content = objectMapper.writeValueAsString(postMessageRequestDTO)
         }
             .andDo { print() }
             .andExpect {

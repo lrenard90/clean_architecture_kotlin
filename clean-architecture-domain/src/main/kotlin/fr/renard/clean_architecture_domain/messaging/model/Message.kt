@@ -21,4 +21,12 @@ class Message(val id: UUID, val author: String, val text: String, val publishedD
     override fun equals(other: Any?): Boolean {
         return other is Message && other.id == id
     }
+
+    override fun hashCode(): Int {
+        return id.hashCode()
+    }
+
+    override fun toString(): String {
+        return "Message(id=$id, author='$author', text='$text', publishedDate=$publishedDate)"
+    }
 }
