@@ -59,4 +59,75 @@ class EditMessageUseCaseHandlerTest {
             messagingFixture.thenErrorShouldBe("Message not found")
         }
     }
+
+    @Nested
+    @DisplayName("Rule: a message size is limited to 280 characters")
+    inner class MessageSizeLimitation {
+        @Test
+        fun `User cannot edit a message with more than 280 characters`() {
+            messagingFixture.givenTheFollowingMessagesExists(
+                listOf(
+                    MessageBuilder()
+                        .withId(UUID.fromString("cc865b1a-529a-4973-9d0b-58ca894f98a2"))
+                        .withAuthor("Alice")
+                        .withText("Hello world!")
+                        .withPublishedDate(LocalDateTime.of(2020, 2, 14, 17, 46, 51))
+                        .build()
+                )
+            )
+
+            messagingFixture.whenUserEditHisMessage(
+                UUID.fromString("cc865b1a-529a-4973-9d0b-58ca894f98a2"),
+                "a".repeat(281)
+            )
+
+            messagingFixture.thenErrorShouldBe("Message text must be less than 280 characters")
+        }
+    }
+
+    @Nested
+    @DisplayName("Rule: a message cannot be empty")
+    inner class MessageNotEmpty {
+        @Test
+        fun `User cannot edit a message with an empty text`() {
+            messagingFixture.givenTheFollowingMessagesExists(
+                listOf(
+                    MessageBuilder()
+                        .withId(UUID.fromString("cc865b1a-529a-4973-9d0b-58ca894f98a2"))
+                        .withAuthor("Alice")
+                        .withText("Hello world!")
+                        .withPublishedDate(LocalDateTime.of(2020, 2, 14, 17, 46, 51))
+                        .build()
+                )
+            )
+
+            messagingFixture.whenUserEditHisMessage(
+                UUID.fromString("cc865b1a-529a-4973-9d0b-58ca894f98a2"),
+                ""
+            )
+
+            messagingFixture.thenErrorShouldBe("Message text must not be blank")
+        }
+
+        @Test
+        fun `User cannot edit a message with a blank text`() {
+            messagingFixture.givenTheFollowingMessagesExists(
+                listOf(
+                    MessageBuilder()
+                        .withId(UUID.fromString("cc865b1a-529a-4973-9d0b-58ca894f98a2"))
+                        .withAuthor("Alice")
+                        .withText("Hello world!")
+                        .withPublishedDate(LocalDateTime.of(2020, 2, 14, 17, 46, 51))
+                        .build()
+                )
+            )
+
+            messagingFixture.whenUserEditHisMessage(
+                UUID.fromString("cc865b1a-529a-4973-9d0b-58ca894f98a2"),
+                " "
+            )
+
+            messagingFixture.thenErrorShouldBe("Message text must not be blank")
+        }
+    }
 }

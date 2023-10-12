@@ -4,14 +4,24 @@ import fr.renard.clean_architecture_domain.socle.model.Snapshotable
 import java.time.LocalDateTime
 import java.util.UUID
 
-class Message(val id: UUID, val author: String, var text: String, val publishedDate: LocalDateTime): Snapshotable<MessageState> {
+class Message: Snapshotable<MessageState> {
+    val id: UUID
+    val author: String
+    lateinit var text: String
+    val publishedDate: LocalDateTime
 
-    init {
-        if (text.isBlank()) throw IllegalArgumentException("Message text must not be blank")
-        if (text.length > 280) throw IllegalArgumentException("Message text must be less than 280 characters")
+    constructor(id: UUID, author: String, text: String, publishedDate: LocalDateTime) {
+        this.id = id
+        this.author = author
+        this.updateText(text)
+        this.publishedDate = publishedDate
     }
 
-    constructor(state: MessageState): this(state.id, state.author, state.text, state.publishedDate) {
+    constructor(state: MessageState) {
+        this.id = state.id
+        this.author = state.author
+        this.text = state.text
+        this.publishedDate = state.publishedDate
     }
 
     override fun snapshot(): MessageState {
@@ -31,6 +41,9 @@ class Message(val id: UUID, val author: String, var text: String, val publishedD
     }
 
     fun updateText(text: String) {
+        if (text.isBlank()) throw IllegalArgumentException("Message text must not be blank")
+        if (text.length > 280) throw IllegalArgumentException("Message text must be less than 280 characters")
+
         this.text = text
     }
 }

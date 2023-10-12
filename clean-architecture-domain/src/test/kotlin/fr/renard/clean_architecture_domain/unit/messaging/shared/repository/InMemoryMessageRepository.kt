@@ -1,6 +1,7 @@
 package fr.renard.clean_architecture_domain.unit.messaging.shared.repository
 
 import fr.renard.clean_architecture_domain.messaging.model.Message
+import fr.renard.clean_architecture_domain.messaging.model.MessageState
 import fr.renard.clean_architecture_domain.messaging.ports.MessageRepository
 import java.util.*
 import kotlin.collections.HashMap
@@ -30,6 +31,7 @@ class InMemoryMessageRepository : MessageRepository {
     }
 
     private fun copy(message: Message): Message {
-        return Message(message.id, message.author, message.text, message.publishedDate)
+        // We use snapshot constructor to avoid validation errors and be sure the validation logic is in the hexagon
+        return Message(MessageState(message.id, message.author, message.text, message.publishedDate))
     }
 }
