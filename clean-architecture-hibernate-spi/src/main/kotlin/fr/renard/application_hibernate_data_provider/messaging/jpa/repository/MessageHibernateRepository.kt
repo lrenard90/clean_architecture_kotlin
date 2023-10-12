@@ -25,4 +25,8 @@ class MessageHibernateRepository(val messageJpaEntityHibernateRepository: Messag
         TODO("Not yet implemented")
     }
 
+    override fun existsById(id: UUID): Boolean {
+        TODO("Not yet implemented")
+    }
+
 }

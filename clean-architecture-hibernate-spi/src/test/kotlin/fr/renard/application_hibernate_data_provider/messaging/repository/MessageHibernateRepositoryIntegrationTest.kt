@@ -18,7 +18,7 @@ internal class MessageHibernateRepositoryIntegrationTest @Autowired constructor(
 
     @Test
     fun `save a message`() {
-        val messageToSave = Message(
+        val messageToSave = MessageBuilder().(
             UUID.fromString("a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"),
             "Alice",
             "Hello world!",
