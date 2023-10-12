@@ -4,7 +4,7 @@ import fr.renard.clean_architecture_domain.socle.model.Snapshotable
 import java.time.LocalDateTime
 import java.util.UUID
 
-class Message(val id: UUID, val author: String, val text: String, val publishedDate: LocalDateTime): Snapshotable<MessageState> {
+class Message(val id: UUID, val author: String, var text: String, val publishedDate: LocalDateTime): Snapshotable<MessageState> {
 
     init {
         if (text.isBlank()) throw IllegalArgumentException("Message text must not be blank")
@@ -28,5 +28,9 @@ class Message(val id: UUID, val author: String, val text: String, val publishedD
 
     override fun toString(): String {
         return "Message(id=$id, author='$author', text='$text', publishedDate=$publishedDate)"
+    }
+
+    fun updateText(text: String) {
+        this.text = text
     }
 }

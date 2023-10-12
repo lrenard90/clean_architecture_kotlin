@@ -1,8 +1,9 @@
-package fr.renard.clean_architecture_domain.shared.repository
+package fr.renard.clean_architecture_domain.unit.messaging.shared.repository
 
 import fr.renard.clean_architecture_domain.messaging.model.Message
 import fr.renard.clean_architecture_domain.messaging.ports.MessageRepository
-import java.util.UUID
+import java.util.*
+import kotlin.collections.HashMap
 
 class InMemoryMessageRepository : MessageRepository {
     private var messagesById: HashMap<UUID, Message> = HashMap()
@@ -14,6 +15,10 @@ class InMemoryMessageRepository : MessageRepository {
 
     override fun findAllByAuthor(author: String): List<Message> {
         return messagesById.values.filter { it.author == author }
+    }
+
+    override fun findById(messageId: UUID): Optional<Message> {
+        return Optional.ofNullable(messagesById[messageId])
     }
 
     fun messages(): Collection<Message> {
