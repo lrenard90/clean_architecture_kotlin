@@ -94,4 +94,30 @@ class PostMessageUseCaseHandlerTest {
             messagingFixture.thenErrorShouldBe("Message text must not be blank")
         }
     }
+
+    @Nested
+    @DisplayName("Scenario: id already exists")
+    inner class IdAlreadyExists {
+        @Test
+        fun `User cannot post a message with an id that already exists`() {
+            val existingMessageId = UUID.fromString("e1fd6ad4-83d5-4f8d-a788-0132c9b33318")
+            messagingFixture.givenTheFollowingMessagesExists(
+                listOf(
+                    MessageBuilder()
+                        .withId(existingMessageId)
+                        .build()
+                )
+            )
+
+            messagingFixture.whenUserPostsAMessage(
+                PostMessageRequestDTO(
+                    existingMessageId,
+                    "Alice",
+                    "Hello world!"
+                )
+            )
+
+            messagingFixture.thenErrorShouldBe("Message already exists")
+        }
+    }
 }

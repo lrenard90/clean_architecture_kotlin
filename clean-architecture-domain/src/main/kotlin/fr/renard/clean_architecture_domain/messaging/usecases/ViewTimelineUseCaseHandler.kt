@@ -14,7 +14,7 @@ class ViewTimelineUseCaseHandler(
 ) {
     fun handle(getTimelineRequestDTO: GetTimelineRequestDTO): List<TimelineMessageDTO> {
         return messageRepository.findAllByAuthor(getTimelineRequestDTO.author)
-            .map { TimelineMessageDTO(it.id, it.author, it.text, computePublishedDateString(it.publishedDate)) }
+            .map { TimelineMessageDTO(it.id, it.author, it.text.value, computePublishedDateString(it.publishedDate)) }
     }
 
     private fun computePublishedDateString(publishedDate: LocalDateTime): String {

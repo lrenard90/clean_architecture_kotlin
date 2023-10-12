@@ -1,6 +1,6 @@
 package fr.renard.clean_architecture_domain.unit.messaging.shared
 
-import fr.renard.clean_architecture_domain.messaging.model.Message
+import fr.renard.clean_architecture_domain.messaging.model.entity.Message
 import fr.renard.clean_architecture_domain.messaging.usecases.EditMessageUseCaseHandler
 import fr.renard.clean_architecture_domain.messaging.usecases.PostMessageUseCaseHandler
 import fr.renard.clean_architecture_domain.messaging.usecases.ViewTimelineUseCaseHandler
@@ -10,8 +10,6 @@ import fr.renard.clean_architecture_domain.messaging.usecases.dto.PostMessageReq
 import fr.renard.clean_architecture_domain.messaging.usecases.dto.TimelineMessageDTO
 import fr.renard.clean_architecture_domain.unit.messaging.shared.repository.InMemoryMessageRepository
 import fr.renard.clean_architecture_domain.shared.time.FakeDateProvider
-import fr.renard.clean_architecture_domain.unit.messaging.EditMessageUseCaseHandlerTest
-import org.assertj.core.api.Assertions
 import org.assertj.core.api.Assertions.assertThat
 import java.time.LocalDateTime
 import java.util.*
@@ -72,6 +70,6 @@ class MessagingFixture {
     }
 
     fun thenMessageShouldBe(message: Message) {
-        assertThat(messageRepository.messages().map { it.snapshot() }).containsExactly(message.snapshot())
+        assertThat(messageRepository.get(message.id).snapshot()).isEqualTo(message.snapshot())
     }
 }

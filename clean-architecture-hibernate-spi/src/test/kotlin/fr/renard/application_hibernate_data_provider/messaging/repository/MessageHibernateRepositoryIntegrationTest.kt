@@ -2,7 +2,7 @@ package fr.renard.application_hibernate_data_provider.messaging.repository
 
 import fr.renard.application_hibernate_data_provider.messaging.jpa.repository.MessageHibernateRepository
 import fr.renard.application_hibernate_data_provider.messaging.jpa.repository.MessageJpaEntityHibernateRepository
-import fr.renard.clean_architecture_domain.messaging.model.Message
+import fr.renard.clean_architecture_domain.messaging.model.entity.Message
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

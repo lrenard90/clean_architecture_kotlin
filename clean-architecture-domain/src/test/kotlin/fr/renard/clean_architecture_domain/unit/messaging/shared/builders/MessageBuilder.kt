@@ -1,6 +1,6 @@
 package fr.renard.clean_architecture_domain.unit.messaging.shared.builders
 
-import fr.renard.clean_architecture_domain.messaging.model.Message
+import fr.renard.clean_architecture_domain.messaging.model.entity.Message
 import java.time.LocalDateTime
 import java.util.*
 

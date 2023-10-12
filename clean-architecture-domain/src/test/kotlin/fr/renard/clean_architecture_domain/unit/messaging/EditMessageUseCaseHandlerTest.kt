@@ -22,14 +22,18 @@ class EditMessageUseCaseHandlerTest {
     @Test
     fun `User can edit his message`() {
         val aliceMessageBuilder = MessageBuilder()
-            .withId(UUID.fromString("cc865b1a-529a-4973-9d0b-58ca894f98a2"))
             .withAuthor("Alice")
             .withPublishedDate(LocalDateTime.of(2020, 2, 14, 17, 46, 51))
         messagingFixture.givenTheFollowingMessagesExists(
             listOf(
                 aliceMessageBuilder
+                    .withId(UUID.fromString("cc865b1a-529a-4973-9d0b-58ca894f98a2"))
                     .withText("Hello world!")
-                    .build()
+                    .build(),
+                aliceMessageBuilder
+                    .withId(UUID.fromString("e1fd6ad4-83d5-4f8d-a788-0132c9b33319"))
+                    .withText("Hello!")
+                    .build(),
             )
         )
 
@@ -40,6 +44,7 @@ class EditMessageUseCaseHandlerTest {
 
         messagingFixture.thenMessageShouldBe(
             aliceMessageBuilder
+                .withId(UUID.fromString("cc865b1a-529a-4973-9d0b-58ca894f98a2"))
                 .withText("Hello world! I'm Alice")
                 .build()
         )

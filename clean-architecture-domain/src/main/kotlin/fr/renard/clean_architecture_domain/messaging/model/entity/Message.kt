@@ -1,5 +1,6 @@
-package fr.renard.clean_architecture_domain.messaging.model
+package fr.renard.clean_architecture_domain.messaging.model.entity
 
+import fr.renard.clean_architecture_domain.messaging.model.value_object.MessageText
 import fr.renard.clean_architecture_domain.socle.model.Snapshotable
 import java.time.LocalDateTime
 import java.util.UUID
@@ -7,7 +8,7 @@ import java.util.UUID
 class Message: Snapshotable<MessageState> {
     val id: UUID
     val author: String
-    lateinit var text: String
+    lateinit var text: MessageText
     val publishedDate: LocalDateTime
 
     constructor(id: UUID, author: String, text: String, publishedDate: LocalDateTime) {
@@ -20,12 +21,12 @@ class Message: Snapshotable<MessageState> {
     constructor(state: MessageState) {
         this.id = state.id
         this.author = state.author
-        this.text = state.text
+        this.text = MessageText(state.text)
         this.publishedDate = state.publishedDate
     }
 
     override fun snapshot(): MessageState {
-        return MessageState(id, author, text, publishedDate)
+        return MessageState(id, author, text.value, publishedDate)
     }
 
     override fun equals(other: Any?): Boolean {
@@ -41,9 +42,6 @@ class Message: Snapshotable<MessageState> {
     }
 
     fun updateText(text: String) {
-        if (text.isBlank()) throw IllegalArgumentException("Message text must not be blank")
-        if (text.length > 280) throw IllegalArgumentException("Message text must be less than 280 characters")
-
-        this.text = text
+        this.text = MessageText(text)
     }
 }
