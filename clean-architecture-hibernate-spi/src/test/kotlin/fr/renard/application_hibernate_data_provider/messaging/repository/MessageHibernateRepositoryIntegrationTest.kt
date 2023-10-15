@@ -5,7 +5,7 @@ import fr.renard.application_hibernate_data_provider.messaging.jpa.repository.Me
 import fr.renard.application_hibernate_data_provider.messaging.jpa.repository.MessageJpaEntityHibernateRepository
 import fr.renard.clean_architecture_domain.messaging.builders.MessageBuilder
 import fr.renard.clean_architecture_domain.messaging.model.entity.Message
-import fr.renard.clean_architecture_domain.messaging.model.entity.MessageState
+import fr.renard.clean_architecture_domain.messaging.model.entity.MessageData
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -34,11 +34,11 @@ internal class MessageHibernateRepositoryIntegrationTest @Autowired constructor(
             messageHibernateRepository.save(messageToSave)
 
             val messageJpaEntity: MessageJpaEntity = messageJpaEntityHibernateRepository.getById(messageToSave.id)
-            val messageState: MessageState = messageToSave.snapshot()
-            assertThat(messageJpaEntity.id).isEqualTo(messageState.id)
-            assertThat(messageJpaEntity.author).isEqualTo(messageState.author)
-            assertThat(messageJpaEntity.text).isEqualTo(messageState.text)
-            assertThat(messageJpaEntity.publishedDate).isEqualTo(messageState.publishedDate)
+            val messageData: MessageData = messageToSave.data()
+            assertThat(messageJpaEntity.id).isEqualTo(messageData.id)
+            assertThat(messageJpaEntity.author).isEqualTo(messageData.author)
+            assertThat(messageJpaEntity.text).isEqualTo(messageData.text)
+            assertThat(messageJpaEntity.publishedDate).isEqualTo(messageData.publishedDate)
         }
 
         @Test
@@ -70,11 +70,11 @@ internal class MessageHibernateRepositoryIntegrationTest @Autowired constructor(
             messageHibernateRepository.save(messageToSave)
 
             val messageJpaEntity: MessageJpaEntity = messageJpaEntityHibernateRepository.getById(messageToSave.id)
-            val messageState: MessageState = messageToSave.snapshot()
-            assertThat(messageJpaEntity.id).isEqualTo(messageState.id)
-            assertThat(messageJpaEntity.author).isEqualTo(messageState.author)
-            assertThat(messageJpaEntity.text).isEqualTo(messageState.text)
-            assertThat(messageJpaEntity.publishedDate).isEqualTo(messageState.publishedDate)
+            val messageData: MessageData = messageToSave.data()
+            assertThat(messageJpaEntity.id).isEqualTo(messageData.id)
+            assertThat(messageJpaEntity.author).isEqualTo(messageData.author)
+            assertThat(messageJpaEntity.text).isEqualTo(messageData.text)
+            assertThat(messageJpaEntity.publishedDate).isEqualTo(messageData.publishedDate)
         }
     }
 
@@ -105,14 +105,14 @@ internal class MessageHibernateRepositoryIntegrationTest @Autowired constructor(
 
         val messages: List<Message> = messageHibernateRepository.findAllByAuthor("Alice")
 
-        assertThat(messages.map { it.snapshot() }).containsExactly(
-            MessageState(
+        assertThat(messages.map { it.data() }).containsExactly(
+            MessageData(
                 UUID.fromString("a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"),
                 "Alice",
                 "Message A",
                 LocalDateTime.of(2020, 1, 1, 0, 0, 0)
             ),
-            MessageState(
+            MessageData(
                 UUID.fromString("b0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12"),
                 "Alice",
                 "Message B",
@@ -177,8 +177,8 @@ internal class MessageHibernateRepositoryIntegrationTest @Autowired constructor(
 
             val message = messageHibernateRepository.findById(UUID.fromString("a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"))
 
-            assertThat(message.get().snapshot()).isEqualTo(
-                MessageState(
+            assertThat(message.get().data()).isEqualTo(
+                MessageData(
                     UUID.fromString("a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"),
                     "Alice",
                     "Message A",

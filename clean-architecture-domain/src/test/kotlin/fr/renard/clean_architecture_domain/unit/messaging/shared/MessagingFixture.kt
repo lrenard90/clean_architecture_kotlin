@@ -38,7 +38,7 @@ class MessagingFixture {
     fun thenPostedMessageShouldBe(expectedMessage: Message) {
         assertThat(
             messageRepository.messages()
-                .map { message: Message -> message.snapshot() }).contains(expectedMessage.snapshot())
+                .map { message: Message -> message.data() }).contains(expectedMessage.data())
     }
 
     fun thenErrorShouldBe(error: String) {
@@ -70,6 +70,6 @@ class MessagingFixture {
     }
 
     fun thenMessageShouldBe(message: Message) {
-        assertThat(messageRepository.get(message.id).snapshot()).isEqualTo(message.snapshot())
+        assertThat(messageRepository.get(message.id).data()).isEqualTo(message.data())
     }
 }

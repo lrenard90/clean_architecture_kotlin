@@ -12,19 +12,19 @@ class MessageHibernateRepository(val messageJpaEntityHibernateRepository: Messag
     MessageRepository {
 
     override fun save(message: Message): Message {
-        val messageJpaEntity: MessageJpaEntity = messageJpaEntityMapper.toJpaEntity(message.snapshot())
+        val messageJpaEntity: MessageJpaEntity = messageJpaEntityMapper.toJpaEntity(message.data())
         val savedJpaEntity: MessageJpaEntity = messageJpaEntityHibernateRepository.save(messageJpaEntity)
-        return Message(messageJpaEntityMapper.toState(savedJpaEntity))
+        return Message.fromData(messageJpaEntityMapper.toData(savedJpaEntity))
     }
 
     override fun findAllByAuthor(author: String): List<Message> {
         val messageJpaEntities: List<MessageJpaEntity> = messageJpaEntityHibernateRepository.findAllByAuthor(author)
-        return messageJpaEntities.map { messageJpaEntity: MessageJpaEntity -> Message(messageJpaEntityMapper.toState(messageJpaEntity)) }
+        return messageJpaEntities.map { messageJpaEntity: MessageJpaEntity -> Message.fromData(messageJpaEntityMapper.toData(messageJpaEntity)) }
     }
 
     override fun findById(messageId: UUID): Optional<Message> {
         return messageJpaEntityHibernateRepository.findById(messageId)
-            .map { messageJpaEntity: MessageJpaEntity -> Message(messageJpaEntityMapper.toState(messageJpaEntity)) }
+            .map { messageJpaEntity: MessageJpaEntity -> Message.fromData(messageJpaEntityMapper.toData(messageJpaEntity)) }
     }
 
     override fun existsById(id: UUID): Boolean {

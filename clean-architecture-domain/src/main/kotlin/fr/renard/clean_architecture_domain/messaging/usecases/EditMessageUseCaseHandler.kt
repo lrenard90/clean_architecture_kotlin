@@ -9,7 +9,7 @@ class EditMessageUseCaseHandler(private val messageRepository: MessageRepository
         val messageToEdit: Message = messageRepository.findById(editMessageRequestDTO.messageId)
             .orElseThrow { RuntimeException("Message not found") }
 
-        messageToEdit.updateText(editMessageRequestDTO.text)
+        messageToEdit.editText(editMessageRequestDTO.text)
 
         messageRepository.save(messageToEdit)
     }

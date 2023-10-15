@@ -41,10 +41,10 @@ internal class MessageControllerE2ETest @Autowired constructor(
             }
 
         messageRepository.findById(postMessageRequestDTO.id).get().let {
-            assertThat(it.snapshot().id).isEqualTo(postMessageRequestDTO.id)
-            assertThat(it.snapshot().author).isEqualTo(postMessageRequestDTO.author)
-            assertThat(it.snapshot().text).isEqualTo(postMessageRequestDTO.text)
-            assertThat(it.snapshot().publishedDate).isNotNull()
+            assertThat(it.data().id).isEqualTo(postMessageRequestDTO.id)
+            assertThat(it.data().author).isEqualTo(postMessageRequestDTO.author)
+            assertThat(it.data().text).isEqualTo(postMessageRequestDTO.text)
+            assertThat(it.data().publishedDate).isNotNull()
         }
     }
 

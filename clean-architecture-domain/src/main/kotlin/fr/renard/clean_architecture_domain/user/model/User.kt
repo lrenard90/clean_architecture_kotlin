@@ -7,7 +7,7 @@ class User(val id: Long, val email: UserEmail, private val password: UserPasswor
     constructor(userState: UserState) : this(userState.id, UserEmail(userState.email), UserPassword(userState.password)) {
     }
 
-    override fun snapshot(): UserState {
+    override fun data(): UserState {
         return UserState(id, email.value, password.value)
     }
 
