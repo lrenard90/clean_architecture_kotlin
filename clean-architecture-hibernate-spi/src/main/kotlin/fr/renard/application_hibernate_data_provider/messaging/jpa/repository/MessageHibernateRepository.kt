@@ -2,8 +2,8 @@ package fr.renard.application_hibernate_data_provider.messaging.jpa.repository
 
 import fr.renard.application_hibernate_data_provider.messaging.jpa.entity.MessageJpaEntity
 import fr.renard.application_hibernate_data_provider.messaging.jpa.mapper.MessageJpaEntityMapper
-import fr.renard.clean_architecture_domain.messaging.model.entity.Message
-import fr.renard.clean_architecture_domain.messaging.ports.MessageRepository
+import fr.renard.clean_architecture_domain.messaging.domain.entity.Message
+import fr.renard.clean_architecture_domain.messaging.application.ports.MessageRepository
 import org.springframework.stereotype.Repository
 import java.util.*
 

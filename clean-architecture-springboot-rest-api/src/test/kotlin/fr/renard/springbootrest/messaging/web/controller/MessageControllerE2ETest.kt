@@ -1,8 +1,8 @@
 package fr.renard.springbootrest.messaging.web.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import fr.renard.clean_architecture_domain.messaging.ports.MessageRepository
-import fr.renard.clean_architecture_domain.messaging.usecases.dto.PostMessageRequestDTO
+import fr.renard.clean_architecture_domain.messaging.application.ports.MessageRepository
+import fr.renard.clean_architecture_domain.messaging.application.dto.PostMessageRequestDTO
 import fr.renard.springbootrest.e2e.configuration.E2eApiTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test

@@ -1,8 +1,8 @@
 package fr.renard.clean_architecture_domain.unit.messaging.shared.repository
 
-import fr.renard.clean_architecture_domain.messaging.model.entity.Message
-import fr.renard.clean_architecture_domain.messaging.model.entity.MessageData
-import fr.renard.clean_architecture_domain.messaging.ports.MessageRepository
+import fr.renard.clean_architecture_domain.messaging.domain.entity.Message
+import fr.renard.clean_architecture_domain.messaging.domain.entity.MessageData
+import fr.renard.clean_architecture_domain.messaging.application.ports.MessageRepository
 import java.util.*
 import kotlin.collections.HashMap
 

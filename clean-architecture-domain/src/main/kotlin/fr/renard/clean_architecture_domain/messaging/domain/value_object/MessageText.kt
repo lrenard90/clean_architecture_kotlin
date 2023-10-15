@@ -1,4 +1,4 @@
-package fr.renard.clean_architecture_domain.messaging.model.value_object
+package fr.renard.clean_architecture_domain.messaging.domain.value_object
 
 data class MessageText(val value: String) {
     init {

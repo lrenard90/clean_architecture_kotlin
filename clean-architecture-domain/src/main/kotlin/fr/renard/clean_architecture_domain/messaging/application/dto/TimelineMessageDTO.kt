@@ -1,4 +1,4 @@
-package fr.renard.clean_architecture_domain.messaging.usecases.dto
+package fr.renard.clean_architecture_domain.messaging.application.dto
 
 import java.util.*
 

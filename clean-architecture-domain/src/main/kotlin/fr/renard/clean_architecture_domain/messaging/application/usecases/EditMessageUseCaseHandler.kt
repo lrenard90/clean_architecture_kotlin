@@ -1,8 +1,8 @@
-package fr.renard.clean_architecture_domain.messaging.usecases
+package fr.renard.clean_architecture_domain.messaging.application.usecases
 
-import fr.renard.clean_architecture_domain.messaging.model.entity.Message
-import fr.renard.clean_architecture_domain.messaging.ports.MessageRepository
-import fr.renard.clean_architecture_domain.messaging.usecases.dto.EditMessageRequestDTO
+import fr.renard.clean_architecture_domain.messaging.domain.entity.Message
+import fr.renard.clean_architecture_domain.messaging.application.ports.MessageRepository
+import fr.renard.clean_architecture_domain.messaging.application.dto.EditMessageRequestDTO
 
 class EditMessageUseCaseHandler(private val messageRepository: MessageRepository) {
     fun handle(editMessageRequestDTO: EditMessageRequestDTO) {

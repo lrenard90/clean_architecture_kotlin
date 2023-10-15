@@ -1,13 +1,13 @@
 package fr.renard.clean_architecture_domain.unit.messaging.shared
 
-import fr.renard.clean_architecture_domain.messaging.model.entity.Message
-import fr.renard.clean_architecture_domain.messaging.usecases.EditMessageUseCaseHandler
-import fr.renard.clean_architecture_domain.messaging.usecases.PostMessageUseCaseHandler
-import fr.renard.clean_architecture_domain.messaging.usecases.ViewTimelineUseCaseHandler
-import fr.renard.clean_architecture_domain.messaging.usecases.dto.EditMessageRequestDTO
-import fr.renard.clean_architecture_domain.messaging.usecases.dto.GetTimelineRequestDTO
-import fr.renard.clean_architecture_domain.messaging.usecases.dto.PostMessageRequestDTO
-import fr.renard.clean_architecture_domain.messaging.usecases.dto.TimelineMessageDTO
+import fr.renard.clean_architecture_domain.messaging.domain.entity.Message
+import fr.renard.clean_architecture_domain.messaging.application.usecases.EditMessageUseCaseHandler
+import fr.renard.clean_architecture_domain.messaging.application.usecases.PostMessageUseCaseHandler
+import fr.renard.clean_architecture_domain.messaging.application.usecases.ViewTimelineUseCaseHandler
+import fr.renard.clean_architecture_domain.messaging.application.dto.EditMessageRequestDTO
+import fr.renard.clean_architecture_domain.messaging.application.dto.GetTimelineRequestDTO
+import fr.renard.clean_architecture_domain.messaging.application.dto.PostMessageRequestDTO
+import fr.renard.clean_architecture_domain.messaging.application.dto.TimelineMessageDTO
 import fr.renard.clean_architecture_domain.unit.messaging.shared.repository.InMemoryMessageRepository
 import fr.renard.clean_architecture_domain.shared.time.FakeDateProvider
 import org.assertj.core.api.Assertions.assertThat

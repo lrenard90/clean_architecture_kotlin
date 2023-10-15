@@ -1,7 +1,7 @@
 package fr.renard.springbootrest.messaging.web.controller
 
-import fr.renard.clean_architecture_domain.messaging.usecases.PostMessageUseCaseHandler
-import fr.renard.clean_architecture_domain.messaging.usecases.dto.PostMessageRequestDTO
+import fr.renard.clean_architecture_domain.messaging.application.usecases.PostMessageUseCaseHandler
+import fr.renard.clean_architecture_domain.messaging.application.dto.PostMessageRequestDTO
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.PostMapping

@@ -4,8 +4,8 @@ import fr.renard.application_hibernate_data_provider.messaging.jpa.entity.Messag
 import fr.renard.application_hibernate_data_provider.messaging.jpa.repository.MessageHibernateRepository
 import fr.renard.application_hibernate_data_provider.messaging.jpa.repository.MessageJpaEntityHibernateRepository
 import fr.renard.clean_architecture_domain.messaging.builders.MessageBuilder
-import fr.renard.clean_architecture_domain.messaging.model.entity.Message
-import fr.renard.clean_architecture_domain.messaging.model.entity.MessageData
+import fr.renard.clean_architecture_domain.messaging.domain.entity.Message
+import fr.renard.clean_architecture_domain.messaging.domain.entity.MessageData
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test

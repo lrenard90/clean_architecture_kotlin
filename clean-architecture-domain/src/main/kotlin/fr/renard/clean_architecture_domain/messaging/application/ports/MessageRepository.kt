@@ -1,6 +1,6 @@
-package fr.renard.clean_architecture_domain.messaging.ports
+package fr.renard.clean_architecture_domain.messaging.application.ports
 
-import fr.renard.clean_architecture_domain.messaging.model.entity.Message
+import fr.renard.clean_architecture_domain.messaging.domain.entity.Message
 import java.util.*
 
 interface MessageRepository {

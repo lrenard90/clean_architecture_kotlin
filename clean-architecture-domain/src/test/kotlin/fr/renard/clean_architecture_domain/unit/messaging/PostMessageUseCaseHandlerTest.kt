@@ -1,6 +1,6 @@
 package fr.renard.clean_architecture_domain.unit.messaging
 
-import fr.renard.clean_architecture_domain.messaging.usecases.dto.PostMessageRequestDTO
+import fr.renard.clean_architecture_domain.messaging.application.dto.PostMessageRequestDTO
 import fr.renard.clean_architecture_domain.unit.messaging.shared.MessagingFixture
 import fr.renard.clean_architecture_domain.messaging.builders.MessageBuilder
 import org.junit.jupiter.api.BeforeEach

@@ -1,8 +1,8 @@
-package fr.renard.clean_architecture_domain.messaging.usecases
+package fr.renard.clean_architecture_domain.messaging.application.usecases
 
-import fr.renard.clean_architecture_domain.messaging.ports.MessageRepository
-import fr.renard.clean_architecture_domain.messaging.usecases.dto.GetTimelineRequestDTO
-import fr.renard.clean_architecture_domain.messaging.usecases.dto.TimelineMessageDTO
+import fr.renard.clean_architecture_domain.messaging.application.ports.MessageRepository
+import fr.renard.clean_architecture_domain.messaging.application.dto.GetTimelineRequestDTO
+import fr.renard.clean_architecture_domain.messaging.application.dto.TimelineMessageDTO
 import fr.renard.clean_architecture_domain.socle.dependency_injection.annotation.UseCase
 import fr.renard.clean_architecture_domain.socle.time.DateProvider
 import java.time.LocalDateTime
