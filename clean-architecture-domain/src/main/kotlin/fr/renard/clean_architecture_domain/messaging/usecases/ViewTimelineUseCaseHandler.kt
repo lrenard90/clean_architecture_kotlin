@@ -14,6 +14,7 @@ class ViewTimelineUseCaseHandler(
 ) {
     fun handle(getTimelineRequestDTO: GetTimelineRequestDTO): List<TimelineMessageDTO> {
         return messageRepository.findAllByAuthor(getTimelineRequestDTO.author)
+            .sortedByDescending { it.publishedDate }
             .map { TimelineMessageDTO(it.id, it.author, it.text.value, computePublishedDateString(it.publishedDate)) }
     }
 

@@ -18,15 +18,17 @@ class MessageHibernateRepository(val messageJpaEntityHibernateRepository: Messag
     }
 
     override fun findAllByAuthor(author: String): List<Message> {
-        TODO("Not yet implemented")
+        val messageJpaEntities: List<MessageJpaEntity> = messageJpaEntityHibernateRepository.findAllByAuthor(author)
+        return messageJpaEntities.map { messageJpaEntity: MessageJpaEntity -> Message(messageJpaEntityMapper.toState(messageJpaEntity)) }
     }
 
     override fun findById(messageId: UUID): Optional<Message> {
-        TODO("Not yet implemented")
+        return messageJpaEntityHibernateRepository.findById(messageId)
+            .map { messageJpaEntity: MessageJpaEntity -> Message(messageJpaEntityMapper.toState(messageJpaEntity)) }
     }
 
     override fun existsById(id: UUID): Boolean {
-        TODO("Not yet implemented")
+        return messageJpaEntityHibernateRepository.existsById(id)
     }
 
 }

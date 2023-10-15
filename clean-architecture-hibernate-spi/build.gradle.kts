@@ -25,6 +25,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation(project(":clean-architecture-domain"))
+    testImplementation(testFixtures(project(":clean-architecture-domain")))
     implementation("org.mapstruct:mapstruct:$mapstructVersion")
     annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
     testAnnotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")

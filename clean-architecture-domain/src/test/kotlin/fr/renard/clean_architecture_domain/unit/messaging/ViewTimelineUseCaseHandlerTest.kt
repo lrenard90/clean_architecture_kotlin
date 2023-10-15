@@ -2,7 +2,7 @@ package fr.renard.clean_architecture_domain.unit.messaging
 
 import fr.renard.clean_architecture_domain.messaging.usecases.dto.TimelineMessageDTO
 import fr.renard.clean_architecture_domain.unit.messaging.shared.MessagingFixture
-import fr.renard.clean_architecture_domain.unit.messaging.shared.builders.MessageBuilder
+import fr.renard.clean_architecture_domain.messaging.builders.MessageBuilder
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
@@ -39,17 +39,17 @@ class ViewTimelineUseCaseHandlerTest {
             messagingFixture.givenTheFollowingMessagesExists(
                 listOf(
                     MessageBuilder()
+                        .withId(UUID.fromString("e1fd6ad4-83d5-4f8d-a788-0132c9b33319"))
+                        .withAuthor("Alice")
+                        .withText("Hello world!")
+                        .withPublishedDate(LocalDateTime.of(2020, 2, 14, 17, 44, 51))
+                        .build(),
+                    MessageBuilder()
                         .withId(UUID.fromString("cc865b1a-529a-4973-9d0b-58ca894f98a2"))
                         .withAuthor("Alice")
                         .withText("Hello world!")
                         .withPublishedDate(LocalDateTime.of(2020, 2, 14, 17, 45, 51))
                         .build(),
-                    MessageBuilder()
-                        .withId(UUID.fromString("e1fd6ad4-83d5-4f8d-a788-0132c9b33319"))
-                        .withAuthor("Alice")
-                        .withText("Hello world!")
-                        .withPublishedDate(LocalDateTime.of(2020, 2, 14, 17, 44, 51))
-                        .build()
                 )
             )
 

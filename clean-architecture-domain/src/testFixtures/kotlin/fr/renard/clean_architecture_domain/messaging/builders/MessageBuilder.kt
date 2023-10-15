@@ -1,4 +1,4 @@
-package fr.renard.clean_architecture_domain.unit.messaging.shared.builders
+package fr.renard.clean_architecture_domain.messaging.builders
 
 import fr.renard.clean_architecture_domain.messaging.model.entity.Message
 import java.time.LocalDateTime

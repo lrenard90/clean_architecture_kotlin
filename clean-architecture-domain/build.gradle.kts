@@ -3,6 +3,13 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm")
     application
+
+    // A Java Library
+    `java-library`
+    // which produces test fixtures
+    `java-test-fixtures`
+    // and is published
+    `maven-publish`
 }
 
 repositories {

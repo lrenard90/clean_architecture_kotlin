@@ -7,4 +7,5 @@ import java.util.UUID
 
 @Repository
 interface MessageJpaEntityHibernateRepository: JpaRepository<MessageJpaEntity, UUID> {
+    fun findAllByAuthor(author: String): List<MessageJpaEntity>
 }
