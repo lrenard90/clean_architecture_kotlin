@@ -20,23 +20,62 @@ internal class MessageHibernateRepositoryIntegrationTest @Autowired constructor(
     @Autowired
     lateinit var messageJpaEntityHibernateRepository: MessageJpaEntityHibernateRepository
 
-    @Test
-    fun `save a message`() {
-        val messageToSave = MessageBuilder()
-            .withId(UUID.fromString("a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"))
-            .withAuthor("Alice")
-            .withText("Hello world!")
-            .withPublishedDate(LocalDateTime.of(2020, 1, 1, 0, 0, 0))
-            .build()
+    @Nested
+    inner class SaveMessage {
+        @Test
+        fun `create a message`() {
+            val messageToSave = MessageBuilder()
+                .withId(UUID.fromString("a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"))
+                .withAuthor("Alice")
+                .withText("Hello world!")
+                .withPublishedDate(LocalDateTime.of(2020, 1, 1, 0, 0, 0))
+                .build()
 
-        messageHibernateRepository.save(messageToSave)
+            messageHibernateRepository.save(messageToSave)
 
-        val messageJpaEntity: MessageJpaEntity = messageJpaEntityHibernateRepository.getById(messageToSave.id)
-        val messageState: MessageState = messageToSave.snapshot()
-        assertThat(messageJpaEntity.id).isEqualTo(messageState.id)
-        assertThat(messageJpaEntity.author).isEqualTo(messageState.author)
-        assertThat(messageJpaEntity.text).isEqualTo(messageState.text)
-        assertThat(messageJpaEntity.publishedDate).isEqualTo(messageState.publishedDate)
+            val messageJpaEntity: MessageJpaEntity = messageJpaEntityHibernateRepository.getById(messageToSave.id)
+            val messageState: MessageState = messageToSave.snapshot()
+            assertThat(messageJpaEntity.id).isEqualTo(messageState.id)
+            assertThat(messageJpaEntity.author).isEqualTo(messageState.author)
+            assertThat(messageJpaEntity.text).isEqualTo(messageState.text)
+            assertThat(messageJpaEntity.publishedDate).isEqualTo(messageState.publishedDate)
+        }
+
+        @Test
+        fun `update a message text`() {
+            messageJpaEntityHibernateRepository.saveAll(
+                listOf(
+                    MessageJpaEntity(
+                        UUID.fromString("a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"),
+                        "Alice",
+                        "Message A",
+                        LocalDateTime.of(2020, 1, 1, 0, 0, 0)
+                    ),
+                    MessageJpaEntity(
+                        UUID.fromString("b0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12"),
+                        "Alice",
+                        "Message B",
+                        LocalDateTime.of(2021, 2, 1, 0, 0, 0)
+                    )
+                )
+            )
+
+            val messageToSave = MessageBuilder()
+                .withId(UUID.fromString("b0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12"))
+                .withAuthor("Alice")
+                .withText("Hello world! updated")
+                .withPublishedDate(LocalDateTime.of(2020, 1, 1, 0, 0, 0))
+                .build()
+
+            messageHibernateRepository.save(messageToSave)
+
+            val messageJpaEntity: MessageJpaEntity = messageJpaEntityHibernateRepository.getById(messageToSave.id)
+            val messageState: MessageState = messageToSave.snapshot()
+            assertThat(messageJpaEntity.id).isEqualTo(messageState.id)
+            assertThat(messageJpaEntity.author).isEqualTo(messageState.author)
+            assertThat(messageJpaEntity.text).isEqualTo(messageState.text)
+            assertThat(messageJpaEntity.publishedDate).isEqualTo(messageState.publishedDate)
+        }
     }
 
     @Test
