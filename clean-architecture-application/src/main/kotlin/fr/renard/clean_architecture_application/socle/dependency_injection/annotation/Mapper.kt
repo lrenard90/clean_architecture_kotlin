@@ -1,0 +1,3 @@
+package fr.renard.clean_architecture_application.socle.dependency_injection.annotation
+
+annotation class Mapper
