@@ -1,4 +1,4 @@
-package fr.renard.clean_architecture_application.user.model
+package fr.renard.clean_architecture_application.authentication.domain
 
 import fr.renard.clean_architecture_application.socle.data.Snapshotable
 
