@@ -1,7 +1,7 @@
 package fr.renard.clean_architecture_application.unit.messaging
 
 import fr.renard.clean_architecture_application.messaging.application.dto.TimelineMessageDTO
-import fr.renard.clean_architecture_application.unit.messaging.shared.MessagingFixture
+import fr.renard.clean_architecture_application.unit.messaging.fixtures.MessagingFixture
 import fr.renard.clean_architecture_application.messaging.builders.MessageBuilder
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName

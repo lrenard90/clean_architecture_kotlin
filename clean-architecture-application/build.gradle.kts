@@ -1,8 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm")
-    application
+    kotlin("jvm") version "1.9.22"
 
     // A Java Library
     `java-library`
@@ -30,14 +29,7 @@ tasks.test {
     useJUnitPlatform()
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "21"
 }
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    jvmTarget = "11"
-}
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-    jvmTarget = "11"
-}
+

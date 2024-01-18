@@ -1,4 +1,4 @@
-package fr.renard.clean_architecture_application.unit.messaging.shared
+package fr.renard.clean_architecture_application.unit.messaging.fixtures
 
 import fr.renard.clean_architecture_application.messaging.domain.entity.Message
 import fr.renard.clean_architecture_application.messaging.application.usecases.EditMessageUseCaseHandler
