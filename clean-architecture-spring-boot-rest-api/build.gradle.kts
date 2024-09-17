@@ -1,8 +1,8 @@
 plugins {
-    kotlin("jvm")
-    id("org.springframework.boot") version "2.6.7"
+    kotlin("jvm") version "1.9.22"
+    id("org.springframework.boot") version "3.3.3"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
-    kotlin("plugin.spring") version "1.6.21"
+    kotlin("plugin.spring") version "1.9.22"
     application
 }
 
@@ -10,18 +10,21 @@ repositories {
     mavenCentral()
 }
 
-val restAssuredVersion = "5.2.0";
+val springBootVersion = "3.3.3"
+val restAssuredVersion = "5.2.0"
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.7.5")
+    implementation(project(":clean-architecture-application"))
+    implementation(project(":clean-architecture-hibernate-adapter"))
+
+    implementation("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation(project(":clean-architecture-application"))
-    implementation(project(":clean-architecture-hibernate-adapter"))
     implementation("commons-logging:commons-logging:1.2")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.testcontainers:testcontainers:1.17.5")
     testImplementation(kotlin("test"))
     testImplementation("org.junit.platform:junit-platform-suite-api:1.9.1")

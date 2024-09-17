@@ -6,16 +6,19 @@ import fr.renard.clean_architecture_hibernate_adapter.messaging.jpa.repository.M
 import fr.renard.clean_architecture_application.messaging.builders.MessageBuilder
 import fr.renard.clean_architecture_application.messaging.domain.entity.Message
 import fr.renard.clean_architecture_application.messaging.domain.entity.MessageData
+import fr.renard.clean_architecture_hibernate_adapter.configuration.IntegrationTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.context.annotation.ComponentScan
+import org.springframework.test.context.ContextConfiguration
 import java.time.LocalDateTime
 import java.util.*
 
-@SpringBootTest
-internal class MessageHibernateRepositoryIntegrationTest @Autowired constructor(val messageHibernateRepository: MessageHibernateRepository) {
+internal class MessageHibernateRepositoryIntegrationTest @Autowired constructor(val messageHibernateRepository: MessageHibernateRepository) :
+    IntegrationTest() {
 
     @Autowired
     lateinit var messageJpaEntityHibernateRepository: MessageJpaEntityHibernateRepository
@@ -33,7 +36,7 @@ internal class MessageHibernateRepositoryIntegrationTest @Autowired constructor(
 
             messageHibernateRepository.save(messageToSave)
 
-            val messageJpaEntity: MessageJpaEntity = messageJpaEntityHibernateRepository.getById(messageToSave.id)
+            val messageJpaEntity: MessageJpaEntity = messageJpaEntityHibernateRepository.getReferenceById(messageToSave.id)
             val messageData: MessageData = messageToSave.data()
             assertThat(messageJpaEntity.id).isEqualTo(messageData.id)
             assertThat(messageJpaEntity.author).isEqualTo(messageData.author)
@@ -69,7 +72,7 @@ internal class MessageHibernateRepositoryIntegrationTest @Autowired constructor(
 
             messageHibernateRepository.save(messageToSave)
 
-            val messageJpaEntity: MessageJpaEntity = messageJpaEntityHibernateRepository.getById(messageToSave.id)
+            val messageJpaEntity: MessageJpaEntity = messageJpaEntityHibernateRepository.getReferenceById(messageToSave.id)
             val messageData: MessageData = messageToSave.data()
             assertThat(messageJpaEntity.id).isEqualTo(messageData.id)
             assertThat(messageJpaEntity.author).isEqualTo(messageData.author)

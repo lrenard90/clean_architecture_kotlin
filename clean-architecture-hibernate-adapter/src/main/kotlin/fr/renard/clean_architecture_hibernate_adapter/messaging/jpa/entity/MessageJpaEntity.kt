@@ -1,8 +1,11 @@
 package fr.renard.clean_architecture_hibernate_adapter.messaging.jpa.entity
 
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
+import jakarta.persistence.Table
 import java.time.LocalDateTime
 import java.util.*
-import javax.persistence.*
 
 @Entity
 @Table(name = "message")
