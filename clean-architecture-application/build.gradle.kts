@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id('kotlin')
+    id("kotlin")
     kotlin("jvm") version "1.9.22"
 
     // A Java Library

@@ -1,19 +1,16 @@
 package fr.renard.clean_architecture_hibernate_adapter.messaging.repository
 
-import fr.renard.clean_architecture_hibernate_adapter.messaging.jpa.entity.MessageJpaEntity
-import fr.renard.clean_architecture_hibernate_adapter.messaging.jpa.repository.MessageHibernateRepository
-import fr.renard.clean_architecture_hibernate_adapter.messaging.jpa.repository.MessageJpaEntityHibernateRepository
 import fr.renard.clean_architecture_application.messaging.builders.MessageBuilder
 import fr.renard.clean_architecture_application.messaging.domain.entity.Message
 import fr.renard.clean_architecture_application.messaging.domain.entity.MessageData
 import fr.renard.clean_architecture_hibernate_adapter.configuration.IntegrationTest
+import fr.renard.clean_architecture_hibernate_adapter.messaging.jpa.entity.MessageJpaEntity
+import fr.renard.clean_architecture_hibernate_adapter.messaging.jpa.repository.MessageHibernateRepository
+import fr.renard.clean_architecture_hibernate_adapter.messaging.jpa.repository.MessageJpaEntityHibernateRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.context.annotation.ComponentScan
-import org.springframework.test.context.ContextConfiguration
 import java.time.LocalDateTime
 import java.util.*
 

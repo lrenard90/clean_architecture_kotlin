@@ -39,7 +39,6 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers:1.17.5")
     testImplementation("org.testcontainers:junit-jupiter:1.17.5")
     testImplementation("org.testcontainers:postgresql:1.17.5")
-    implementation("com.h2database:h2:2.1.214")
 }
 
 tasks.test {

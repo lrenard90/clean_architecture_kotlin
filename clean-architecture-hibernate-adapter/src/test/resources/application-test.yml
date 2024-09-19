@@ -1,8 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://db:5432/mydatabase
-    username: postgres
-    password: postgres
     driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+  output.ansi.enabled: ALWAYS
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        format_sql: true
