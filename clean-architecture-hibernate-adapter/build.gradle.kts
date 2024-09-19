@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    id("kotlin")
     id("org.springframework.boot") version "3.3.3"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("plugin.spring") version "1.9.22"
@@ -24,6 +25,9 @@ dependencies {
     implementation(project(":clean-architecture-application"))
     testImplementation(testFixtures(project(":clean-architecture-application")))
 
+    // posgres dependency
+    implementation("org.postgresql:postgresql")
+
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion")
     implementation("org.springframework.boot:spring-boot-starter-validation:$springBootVersion")
     testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
@@ -37,7 +41,9 @@ dependencies {
     annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
     testAnnotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
 
-    testImplementation("com.h2database:h2:2.1.214")
+    testImplementation("org.testcontainers:testcontainers:1.17.5")
+    testImplementation("org.testcontainers:junit-jupiter:1.17.5")
+    testImplementation("org.testcontainers:postgresql:1.17.5")
 }
 
 tasks.test {

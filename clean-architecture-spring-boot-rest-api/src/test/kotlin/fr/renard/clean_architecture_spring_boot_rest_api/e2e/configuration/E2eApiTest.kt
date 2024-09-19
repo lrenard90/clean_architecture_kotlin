@@ -1,11 +1,11 @@
 package fr.renard.clean_architecture_spring_boot_rest_api.e2e.configuration
 
 import io.restassured.RestAssured
+import jakarta.annotation.PostConstruct
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.web.server.LocalServerPort
+import org.springframework.boot.test.web.server.LocalServerPort
 import org.springframework.test.context.ActiveProfiles
 import org.testcontainers.junit.jupiter.Testcontainers
-import javax.annotation.PostConstruct
 
 @ActiveProfiles("test")
 @Testcontainers
